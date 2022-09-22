@@ -69,7 +69,10 @@ void PlayStereoFrequency( short player, short which, short freq )
 
     const SpeakerMix& mix = speakerMixForPlayer[player];
 
-    if (soundOn) {        
+    if (soundOn) {
+        // TODO: increase frequency, tho SDL does not have a way to change pitch... OpenAL, AVAudioEngine?
+        // result = channel->setFrequency((channelFrequency * (16 + freq)) / 16);
+
         int result = Mix_SetPanning(MIX_CHANNEL_POST, mix.left, mix.right);
         SDL_ERRCHECK(result);
 
