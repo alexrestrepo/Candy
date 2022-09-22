@@ -421,6 +421,7 @@
 		49F71F541A95A5F700174598 /* fmod_output.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fmod_output.h; sourceTree = "<group>"; };
 		49F71F551A95A5F700174598 /* fmod.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fmod.h; sourceTree = "<group>"; };
 		49F71F561A95A5F700174598 /* fmod.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = fmod.hpp; sourceTree = "<group>"; };
+		FA391B1728DCBF0800F7812D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -615,6 +616,7 @@
 		49BCC9131A89CCF100260713 = {
 			isa = PBXGroup;
 			children = (
+				FA391B1728DCBF0800F7812D /* README.md */,
 				49E3488F1A91CC6C008CE0B4 /* Cocoa.framework */,
 				49BCC91E1A89CCF200260713 /* Candy Crisis */,
 				49BCC91D1A89CCF200260713 /* Products */,
