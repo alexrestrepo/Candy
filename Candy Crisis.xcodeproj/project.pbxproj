@@ -166,7 +166,7 @@
 		49BCC9941A89CF5D00260713 /* random.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BCC96B1A89CF5D00260713 /* random.cpp */; };
 		49BCC9971A89CF5D00260713 /* score.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BCC9701A89CF5D00260713 /* score.cpp */; };
 		49BCC9981A89CF5D00260713 /* SDLU.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BCC9721A89CF5D00260713 /* SDLU.cpp */; };
-		49BCC9991A89CF5D00260713 /* soundfx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BCC9741A89CF5D00260713 /* soundfx.cpp */; };
+		49BCC9991A89CF5D00260713 /* soundfx.mm in Sources */ = {isa = PBXBuildFile; fileRef = 49BCC9741A89CF5D00260713 /* soundfx.mm */; };
 		49BCC99A1A89CF5D00260713 /* tutorial.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BCC9761A89CF5D00260713 /* tutorial.cpp */; };
 		49BCC99B1A89CF5D00260713 /* tweak.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BCC9781A89CF5D00260713 /* tweak.cpp */; };
 		49BCC99C1A89CF5D00260713 /* victory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49BCC97A1A89CF5D00260713 /* victory.cpp */; };
@@ -186,9 +186,8 @@
 		49DCEAA21A986D5800A68817 /* mod_140 in Resources */ = {isa = PBXBuildFile; fileRef = 491E522D1A91D2D600AB79A1 /* mod_140 */; };
 		49DCEAA31A986D5800A68817 /* mod_141 in Resources */ = {isa = PBXBuildFile; fileRef = 491E522E1A91D2D600AB79A1 /* mod_141 */; };
 		49DCEAA41A986D5800A68817 /* mod_142 in Resources */ = {isa = PBXBuildFile; fileRef = 491E522F1A91D2D600AB79A1 /* mod_142 */; };
-		49E348901A91CC6C008CE0B4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49E3488F1A91CC6C008CE0B4 /* Cocoa.framework */; };
-		FA391B1A28DCD09900F7812D /* SDL2_mixer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA391B1828DCC3E400F7812D /* SDL2_mixer.framework */; };
-		FA391B1B28DCD09900F7812D /* SDL2_mixer.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FA391B1828DCC3E400F7812D /* SDL2_mixer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FA391B2028DCF32400F7812D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA391B1F28DCF32400F7812D /* AVFoundation.framework */; };
+		FA391B2328DCFD1D00F7812D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA391B2228DCFD1D00F7812D /* Cocoa.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -199,7 +198,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				4991C7701AC6844800133DCB /* SDL2_image.framework in CopyFiles */,
-				FA391B1B28DCD09900F7812D /* SDL2_mixer.framework in CopyFiles */,
 				4991C7711AC6844800133DCB /* SDL2.framework in CopyFiles */,
 				4905F8B71A95D57F003ECACF /* libfmodex.dylib in CopyFiles */,
 			);
@@ -404,7 +402,7 @@
 		49BCC9711A89CF5D00260713 /* score.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = score.h; sourceTree = "<group>"; };
 		49BCC9721A89CF5D00260713 /* SDLU.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SDLU.cpp; sourceTree = "<group>"; };
 		49BCC9731A89CF5D00260713 /* SDLU.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDLU.h; sourceTree = "<group>"; };
-		49BCC9741A89CF5D00260713 /* soundfx.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = soundfx.cpp; sourceTree = "<group>"; };
+		49BCC9741A89CF5D00260713 /* soundfx.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = soundfx.mm; sourceTree = "<group>"; };
 		49BCC9751A89CF5D00260713 /* soundfx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = soundfx.h; sourceTree = "<group>"; };
 		49BCC9761A89CF5D00260713 /* tutorial.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tutorial.cpp; sourceTree = "<group>"; };
 		49BCC9771A89CF5D00260713 /* tutorial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tutorial.h; sourceTree = "<group>"; };
@@ -414,7 +412,6 @@
 		49BCC97B1A89CF5D00260713 /* victory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = victory.h; sourceTree = "<group>"; };
 		49BCC97C1A89CF5D00260713 /* zap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = zap.cpp; sourceTree = "<group>"; };
 		49BCC97D1A89CF5D00260713 /* zap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zap.h; sourceTree = "<group>"; };
-		49E3488F1A91CC6C008CE0B4 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		49EF74151AA2CC9500531F04 /* Candy Crisis.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Candy Crisis.entitlements"; sourceTree = "<group>"; };
 		49F71F4F1A95A5F700174598 /* fmod_codec.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fmod_codec.h; sourceTree = "<group>"; };
 		49F71F501A95A5F700174598 /* fmod_common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fmod_common.h; sourceTree = "<group>"; };
@@ -425,7 +422,8 @@
 		49F71F551A95A5F700174598 /* fmod.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fmod.h; sourceTree = "<group>"; };
 		49F71F561A95A5F700174598 /* fmod.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = fmod.hpp; sourceTree = "<group>"; };
 		FA391B1728DCBF0800F7812D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		FA391B1828DCC3E400F7812D /* SDL2_mixer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SDL2_mixer.framework; sourceTree = "<group>"; };
+		FA391B1F28DCF32400F7812D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		FA391B2228DCFD1D00F7812D /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -433,8 +431,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49E348901A91CC6C008CE0B4 /* Cocoa.framework in Frameworks */,
-				FA391B1A28DCD09900F7812D /* SDL2_mixer.framework in Frameworks */,
+				FA391B2328DCFD1D00F7812D /* Cocoa.framework in Frameworks */,
+				FA391B2028DCF32400F7812D /* AVFoundation.framework in Frameworks */,
 				4991C76F1AC6843100133DCB /* SDL2.framework in Frameworks */,
 				4905F8B61A95D570003ECACF /* libfmodex.dylib in Frameworks */,
 				4991C76E1AC6843100133DCB /* SDL2_image.framework in Frameworks */,
@@ -612,7 +610,6 @@
 		4991C76B1AC6841E00133DCB /* SDL */ = {
 			isa = PBXGroup;
 			children = (
-				FA391B1828DCC3E400F7812D /* SDL2_mixer.framework */,
 				4991C76C1AC6843100133DCB /* SDL2_image.framework */,
 				4991C76D1AC6843100133DCB /* SDL2.framework */,
 			);
@@ -623,9 +620,9 @@
 			isa = PBXGroup;
 			children = (
 				FA391B1728DCBF0800F7812D /* README.md */,
-				49E3488F1A91CC6C008CE0B4 /* Cocoa.framework */,
 				49BCC91E1A89CCF200260713 /* Candy Crisis */,
 				49BCC91D1A89CCF200260713 /* Products */,
+				FA391B1E28DCF32400F7812D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -701,7 +698,7 @@
 				49BCC9711A89CF5D00260713 /* score.h */,
 				49BCC9721A89CF5D00260713 /* SDLU.cpp */,
 				49BCC9731A89CF5D00260713 /* SDLU.h */,
-				49BCC9741A89CF5D00260713 /* soundfx.cpp */,
+				49BCC9741A89CF5D00260713 /* soundfx.mm */,
 				49BCC9751A89CF5D00260713 /* soundfx.h */,
 				49BCC9761A89CF5D00260713 /* tutorial.cpp */,
 				49BCC9771A89CF5D00260713 /* tutorial.h */,
@@ -730,6 +727,15 @@
 				49F71F561A95A5F700174598 /* fmod.hpp */,
 			);
 			name = fmod;
+			sourceTree = "<group>";
+		};
+		FA391B1E28DCF32400F7812D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FA391B2228DCFD1D00F7812D /* Cocoa.framework */,
+				FA391B1F28DCF32400F7812D /* AVFoundation.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -971,7 +977,7 @@
 				49BCC98E1A89CF5D00260713 /* MTypes.cpp in Sources */,
 				49BCC9821A89CF5D00260713 /* font.cpp in Sources */,
 				49BCC99B1A89CF5D00260713 /* tweak.cpp in Sources */,
-				49BCC9991A89CF5D00260713 /* soundfx.cpp in Sources */,
+				49BCC9991A89CF5D00260713 /* soundfx.mm in Sources */,
 				49BCC98D1A89CF5D00260713 /* moving.cpp in Sources */,
 				49BCC9941A89CF5D00260713 /* random.cpp in Sources */,
 				49BCC9971A89CF5D00260713 /* score.cpp in Sources */,
@@ -1035,7 +1041,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -1085,7 +1091,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 			};
