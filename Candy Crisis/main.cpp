@@ -474,6 +474,7 @@ void RetrieveResources( void )
 {
 	                            OpeningProgress( 0, 10 );
 	InitSound( );				OpeningProgress( 1, 10 );
+    InitMusic();
 
 	InitBackdrop( );			OpeningProgress( 2, 10 );
 
@@ -565,6 +566,11 @@ const char* QuickResourceName( const char* prefix, int id, const char* extension
 	return name;
 }
 
+void Cleanup( void ) {
+    CleanupAudio();
+    SDL_Quit();
+}
+
 void Initialize( void )
 {	
 #if _WIN32
@@ -593,7 +599,7 @@ void Initialize( void )
 		Error( "SDL_Init failed" );
 	}
 	
-	atexit( SDL_Quit );
+	atexit( Cleanup );
     
     SDLU_Init();
 }

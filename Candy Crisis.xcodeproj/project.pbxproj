@@ -187,6 +187,8 @@
 		49DCEAA31A986D5800A68817 /* mod_141 in Resources */ = {isa = PBXBuildFile; fileRef = 491E522E1A91D2D600AB79A1 /* mod_141 */; };
 		49DCEAA41A986D5800A68817 /* mod_142 in Resources */ = {isa = PBXBuildFile; fileRef = 491E522F1A91D2D600AB79A1 /* mod_142 */; };
 		49E348901A91CC6C008CE0B4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49E3488F1A91CC6C008CE0B4 /* Cocoa.framework */; };
+		FA391B1A28DCD09900F7812D /* SDL2_mixer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA391B1828DCC3E400F7812D /* SDL2_mixer.framework */; };
+		FA391B1B28DCD09900F7812D /* SDL2_mixer.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FA391B1828DCC3E400F7812D /* SDL2_mixer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -197,6 +199,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				4991C7701AC6844800133DCB /* SDL2_image.framework in CopyFiles */,
+				FA391B1B28DCD09900F7812D /* SDL2_mixer.framework in CopyFiles */,
 				4991C7711AC6844800133DCB /* SDL2.framework in CopyFiles */,
 				4905F8B71A95D57F003ECACF /* libfmodex.dylib in CopyFiles */,
 			);
@@ -422,6 +425,7 @@
 		49F71F551A95A5F700174598 /* fmod.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fmod.h; sourceTree = "<group>"; };
 		49F71F561A95A5F700174598 /* fmod.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = fmod.hpp; sourceTree = "<group>"; };
 		FA391B1728DCBF0800F7812D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		FA391B1828DCC3E400F7812D /* SDL2_mixer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SDL2_mixer.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -430,6 +434,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				49E348901A91CC6C008CE0B4 /* Cocoa.framework in Frameworks */,
+				FA391B1A28DCD09900F7812D /* SDL2_mixer.framework in Frameworks */,
 				4991C76F1AC6843100133DCB /* SDL2.framework in Frameworks */,
 				4905F8B61A95D570003ECACF /* libfmodex.dylib in Frameworks */,
 				4991C76E1AC6843100133DCB /* SDL2_image.framework in Frameworks */,
@@ -607,6 +612,7 @@
 		4991C76B1AC6841E00133DCB /* SDL */ = {
 			isa = PBXGroup;
 			children = (
+				FA391B1828DCC3E400F7812D /* SDL2_mixer.framework */,
 				4991C76C1AC6843100133DCB /* SDL2_image.framework */,
 				4991C76D1AC6843100133DCB /* SDL2.framework */,
 			);
@@ -1101,6 +1107,8 @@
 					"$(inherited)",
 					"$(LOCAL_LIBRARY_DIR)/Frameworks",
 					"$(PROJECT_DIR)/Candy\\ Crisis",
+					"$(PROJECT_DIR)/Candy\\ Crisis",
+					"$(PROJECT_DIR)/Candy\\ Crisis",
 				);
 				INFOPLIST_FILE = "Candy Crisis/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -1129,6 +1137,8 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+					"$(PROJECT_DIR)/Candy\\ Crisis",
+					"$(PROJECT_DIR)/Candy\\ Crisis",
 					"$(PROJECT_DIR)/Candy\\ Crisis",
 				);
 				INFOPLIST_FILE = "Candy Crisis/Info.plist";

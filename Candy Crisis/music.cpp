@@ -23,6 +23,39 @@ int                     s_musicPaused = 0;
 static FMOD::Channel*   s_musicChannel = NULL;
 static FMOD::Sound*     s_musicModule = NULL;
 
+FMOD::System              *g_fmod;
+
+void FMOD_ERRCHECK(int result)
+{
+    if (result != FMOD_OK)
+    {
+        printf("FMOD error! (%d) %s\n", result, FMOD_ErrorString(FMOD_RESULT(result)));
+        abort();
+    }
+}
+
+void InitMusic( void )
+{
+#warning music doesn't work just yet...
+    return;
+
+    FMOD_RESULT   result = FMOD::System_Create(&g_fmod);
+    FMOD_ERRCHECK(result);
+
+    unsigned int  version;
+    result = g_fmod->getVersion(&version);
+    FMOD_ERRCHECK(result);
+
+    if (version < FMOD_VERSION)
+    {
+        printf("Error!  You are using an old version of FMOD %08x.  This program requires %08x\n", version, FMOD_VERSION);
+        abort();
+    }
+
+    result = g_fmod->init(64, FMOD_INIT_NORMAL, 0);
+    FMOD_ERRCHECK(result);
+}
+
 void EnableMusic( MBoolean on )
 {
     if (s_musicChannel)
@@ -78,7 +111,7 @@ void ResumeMusic( void )
 
 void ChooseMusic( short which )
 {
-#warning sound doesn't work just yet...
+#warning music doesn't work just yet...
     return;
     
     if (s_musicChannel != NULL)

@@ -1,51 +1,44 @@
 // soundfx.c
 
+#include <SDL2_mixer/SDL_mixer.h>
+
 #include "main.h"
 #include "soundfx.h"
 #include "music.h"
 
-#include "fmod.hpp"
-#include "fmod_errors.h"
+MBoolean            soundOn = true;
+static Mix_Chunk    *s_sound[kNumSounds];
 
-FMOD::System              *g_fmod;
-static FMOD::Sound        *s_sound[kNumSounds];
-MBoolean                   soundOn = true;
-
-void FMOD_ERRCHECK(int result)
+typedef enum
 {
-    if (result != FMOD_OK)
-    {
-        printf("FMOD error! (%d) %s\n", result, FMOD_ErrorString(FMOD_RESULT(result)));
+    SDLMIX_OK = 0
+} SDLMIX_Status;
+
+void SDL_ERRCHECK(int result)
+{
+    if (result < SDLMIX_OK) {
+        printf("SDL_Mixer error! (%d) %s\n", result, Mix_GetError());
         abort();
     }
 }
 
 void InitSound( void )
 {
-#warning sound doesn't work just yet...
-    return;
-    
-    FMOD_RESULT   result = FMOD::System_Create(&g_fmod);
-    FMOD_ERRCHECK(result);
-    
-    unsigned int  version;
-    result = g_fmod->getVersion(&version);
-    FMOD_ERRCHECK(result);
-    
-    if (version < FMOD_VERSION)
-    {
-        printf("Error!  You are using an old version of FMOD %08x.  This program requires %08x\n", version, FMOD_VERSION);
-        abort();
-    }
-    
-    result = g_fmod->init(64, FMOD_INIT_NORMAL, 0);
-    FMOD_ERRCHECK(result);
-    
+    int result = Mix_OpenAudio(MIX_DEFAULT_FREQUENCY, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 2048);
+    SDL_ERRCHECK(result);
+
     for (int index=0; index<kNumSounds; index++)
     {
-        /* NOTE: don't replace the sound flags with FMOD_DEFAULT! This will make some WAVs loop (and fail to release their channels). */
-        result = g_fmod->createSound(QuickResourceName("snd", index+128, ".wav"), FMOD_LOOP_OFF | FMOD_2D | FMOD_HARDWARE, 0, &s_sound[index]);
-        FMOD_ERRCHECK(result);
+        const char *filename = QuickResourceName("snd", index + 128, ".wav");
+        Mix_Chunk *wav = Mix_LoadWAV(filename);
+        if (wav) {
+            // NOTE: release on quit?
+            s_sound[index] = wav;
+
+        } else {
+            printf("Unable to load wav file %s\n", filename);
+            abort();
+        }
     }
 }
 
@@ -62,47 +55,38 @@ void PlayStereo( short player, short which )
 
 void PlayStereoFrequency( short player, short which, short freq )
 {
-#warning sound doesn't work just yet...
-    return;
-    
     struct SpeakerMix
     {
-        float left, right, center;
+        uint8_t left, right;
     };
-    
+
     SpeakerMix speakerMixForPlayer[] =
     {
-        { 1.0, 0.0, 0.0 },
-        { 0.0, 1.0, 0.0 },
-        { 0.0, 0.0, 1.0 },
+        { 255,  0 },
+        { 0,    255 },
+        { 255,  255 },
     };
-    
+
     const SpeakerMix& mix = speakerMixForPlayer[player];
-    
-    if (soundOn)
-    {
-        FMOD::Channel*    channel = NULL;
-        FMOD_RESULT       result = g_fmod->playSound(FMOD_CHANNEL_FREE, s_sound[which], true, &channel);
-        FMOD_ERRCHECK(result);
-        
-        result = channel->setSpeakerMix(mix.left, mix.right, mix.center, 0.0, 0.0, 0.0, 0.0, 0.0);
-        FMOD_ERRCHECK(result);
-        
-        float channelFrequency;
-        result = s_sound[which]->getDefaults(&channelFrequency, NULL, NULL, NULL);
-        FMOD_ERRCHECK(result);
-        
-        result = channel->setFrequency((channelFrequency * (16 + freq)) / 16);
-        FMOD_ERRCHECK(result);
-        
-        result = channel->setPaused(false);
-        FMOD_ERRCHECK(result);
-        
-        UpdateSound();
+
+    if (soundOn) {        
+        int result = Mix_SetPanning(MIX_CHANNEL_POST, mix.left, mix.right);
+        SDL_ERRCHECK(result);
+
+        result = Mix_PlayChannel(-1, s_sound[which], 0);
+        SDL_ERRCHECK(result);
     }
 }
 
 void UpdateSound()
 {
-    g_fmod->update();
+    // noop
+}
+
+void CleanupAudio()
+{
+    for (int index=0; index<kNumSounds; index++) {
+        Mix_FreeChunk(s_sound[index]);
+    }
+    Mix_CloseAudio();
 }

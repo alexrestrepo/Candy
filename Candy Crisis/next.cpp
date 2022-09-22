@@ -65,7 +65,7 @@ void ShowPull( int player )
 	MRect    srcRect;
 	int      yank[8] = { 20, 18, 15, 8, -6, -26, -46, -66 };
 	int      slide[8] = { kNoDraw, 66, 48, 36, 29, 26, 24, 23 };
-	int      drawA, drawB, offset, count;
+    int      drawA = 0, drawB = 0, offset, count;
 	SDL_Rect sourceSDLRect, destSDLRect;
 	
 	if( !nextWindowVisible[player] ) return;
